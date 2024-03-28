@@ -13,7 +13,7 @@ public class Tarjeta {
         this.data = data;
     }
 
-    public void createrard() {
+    public void createcard() {
         System.out.println("Tarjeta creada");
     }
 }
