@@ -33,7 +33,5 @@ public class Lista<T> {
         }
         System.out.println();
     }
-
-    public void rem
 }
 
