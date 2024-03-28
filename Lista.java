@@ -1,4 +1,6 @@
-public class Lista<T> {
+import java.util.Iterator;
+
+public class Lista<T> implements Iterable<T>{
     private Nodo<T> head;
 
     private static class Nodo<T> {
@@ -11,6 +13,27 @@ public class Lista<T> {
         }
     }
 
+    public Iterator<T> iterator() {
+        return new ListaIterator();
+    }
+
+    private class ListaIterator implements Iterator<T> {
+        private Nodo<T> current;
+
+        public ListaIterator() {
+            current = head;
+        }
+
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        public T next() {
+            T data = current.data;
+            current = current.next;
+            return data;
+        }
+    }
 
     public void add(T data) {
         Nodo<T> newNode = new Nodo<>(data);
@@ -33,5 +56,6 @@ public class Lista<T> {
         }
         System.out.println();
     }
+
 }
 
