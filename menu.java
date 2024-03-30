@@ -28,7 +28,24 @@ public class menu {
             opcion = scanner.nextInt();
 
             switch (opcion) {
-                case 1:
+                case 1:                    
+                    System.out.println("Ingrese el titulo del consejo");
+                    String tarjetaTitle = scanner.nextLine();		    
+            	    
+                    System.out.println("Ingrese el consejo");
+                    String tarjetaData = scanner.nextLine();	    
+                    
+                    System.out.println("Ingrese la etiqueta del consejo");
+                    String tarjetaTag = scanner.nextLine();	
+                    
+                    Tarjeta tarjeta = new Tarjeta(tarjetaData, tarjetaTitle, tarjetaTag, null);
+                    lista.add(tarjeta); 
+                    
+                    System.out.println("Ingrese '1' para seguir ingreasando ó ingrese '0' para dejar de ver ingresar");
+                    insertContinue = scanner.nextInt();
+                    
+                    scanner.nextLine(); // Esta aqui para que no se vuelva a llamar a scanner.nextInt() en vez de a scanner.nextLine() en el siguiente ciclo.
+                    
                     break;
                 case 2:
                     //declaracion del iterator 
