@@ -31,6 +31,31 @@ public class menu {
                 case 1:
                     break;
                 case 2:
+                    //declaracion del iterator 
+                	Lista<Tarjeta>.ListaIterator iterador = lista.new ListaIterator();
+                
+                	//sub-menu
+                	int tarjetaContinue = 1;
+                	
+                	while(iterador.hasNext() && tarjetaContinue == 1){
+                	    Tarjeta actualTarjeta = iterador.next();
+                
+                	    System.out.println(actualTarjeta.getTitle());                	    
+                	    System.out.println(actualTarjeta.getData());                	    
+                	    System.out.println(actualTarjeta.getTag());
+                	    
+                	    if(iterador.hasNext()){
+                	        System.out.println("Ingrese '1' para ver la siguiente tarjeta ó ingrese '0' para dejar de ver tarjetas");
+                	        tarjetaContinue = scanner.nextInt();
+                	    }
+                	    else{
+                	        System.out.println("No hay mas cartas para mostrar");
+                	    }
+                	}
+
+                    
+                    
+                    
                     break;
                 case 3:
                     System.out.println("Tarjetas guardadas:");
