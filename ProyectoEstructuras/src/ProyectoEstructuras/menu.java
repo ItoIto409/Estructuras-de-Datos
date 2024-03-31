@@ -26,7 +26,7 @@ public class menu {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Lista<Tarjeta> lista = cargarTarjetas(); // Crear una instancia de Lista para almacenar las tarjetas
-        Lista<Tarjeta> guardadas = new Lista<>();
+        Pila<Tarjeta> guardadas = new Pila<>(1000);
         int opcion, insertContinue;
 
         /*
@@ -272,7 +272,7 @@ public class menu {
         }
     }
 
-    private static void imprimirTarjetasGuardadas(Lista<Tarjeta> tarjetas) {
+    private static void imprimirTarjetasGuardadas(Pila<Tarjeta> tarjetas) {
         Iterator<Tarjeta> iterador = tarjetas.iterator();
         int tarjetaContinue = 1;
         Scanner scanner = new Scanner(System.in);
