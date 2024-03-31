@@ -24,7 +24,6 @@ public class Pila<T> implements Iterable<T>{
         public T next() {
             
             T data = p[current-1];
-            //System.out.println("hola:" + current + ", data:" + data);
             current--;
             return data;
         }
