@@ -75,12 +75,21 @@ public class menu {
 
                         int tarjetaContinue = 1;
 
+                        System.out.println("\u001B[1mTarjetas en la lista\u001B[0m");
                         while (iterador.hasNext() && tarjetaContinue == 1) {
                             Tarjeta actualTarjeta = iterador.next();
-                            System.out.println("\u001B[1mTarjetas en la lista\u001B[0m");
+
                             System.out.println(actualTarjeta.getTitle());
                             System.out.println(actualTarjeta.getData());
                             System.out.println("Etiqueta: " + actualTarjeta.getTag());
+                            System.out.println("Desea guardar esta tarjeta? (Ingrese '1' para guardar, '0' para omitir)");
+                            int guardar = scanner.nextInt();
+                            scanner.nextLine(); // Consumir la nueva línea después de leer el número
+
+                            if (guardar == 1) {
+                                guardadas.add(actualTarjeta);
+                                System.out.println("Tarjeta guardada con exito.");
+                            }
 
                             if (iterador.hasNext()) {
                                 System.out.println("Ingrese '1' para ver la siguiente tarjeta o ingrese '0' para dejar de ver tarjetas");
@@ -100,10 +109,34 @@ public class menu {
                         * Opción para ver las tarjetas guardadas.
                         * Muestra las tarjetas almacenadas en la lista al usuario.
                          */
-                        System.out.println("\u001B[1mTarjetas guardadas:\u001B[0m");
-                        System.out.println("Presione Enter para continuar...");
-                        scanner.nextLine(); // Espera a que el usuario presione Enter
-                        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                        Iterator<Tarjeta> iteradorGuardadas = guardadas.iterator();
+                        tarjetaContinue = 1;
+                        if (!iteradorGuardadas.hasNext()) {
+                            System.out.println("No tiene tarjetas guardadas");
+                            System.out.println("Presione Enter para continuar...");
+                            scanner.nextLine(); // Espera a que el usuario presione Enter
+                            System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+                        } else {
+                            System.out.println("\u001B[1mTarjetas guardadas:\u001B[0m");
+                            while (iteradorGuardadas.hasNext() && tarjetaContinue == 1) {
+                                Tarjeta actualTarjeta = iteradorGuardadas.next();
+                                System.out.println(actualTarjeta.getTitle());
+                                System.out.println(actualTarjeta.getData());
+                                System.out.println("Etiqueta: " + actualTarjeta.getTag());
+                                if (iteradorGuardadas.hasNext()) {
+                                    System.out.println("Ingrese '1' para ver la siguiente tarjeta o ingrese '0' para dejar de ver tarjetas");
+                                    tarjetaContinue = scanner.nextInt();
+                                    scanner.nextLine(); // Consumir la nueva línea después de leer el número
+                                } else {
+                                    System.out.println("No hay mas cartas para mostrar");
+                                    System.out.println("Presione Enter para continuar...");
+                                    scanner.nextLine(); // Espera a que el usuario presione Enter
+                                    System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                                }
+                            }
+                        }
+
                         break;
 
                     case 4:
