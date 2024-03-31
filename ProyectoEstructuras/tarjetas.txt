@@ -1,2 +1,1 @@
-Tarjeta prueba 1,Consejo prueba 1,Etiqueta prueba 1
-Tarjeta prueba 2,Consejo prueba2,Etiqueta prueba 2
+Consejo sobre finanzas,Este sconsejo les enseñara como manejar su vida financiera,Finanzas,4.0
